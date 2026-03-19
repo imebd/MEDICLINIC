@@ -3,7 +3,6 @@ session_start();
 require_once '../config/database.php';
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-  
     $email = trim($_POST['email']);
     $password = trim($_POST['password']);
 
@@ -12,17 +11,21 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $user = $stmt->fetch();
 
     if ($user) {
-       
         $db_password = trim($user['mot_de_passe']);
 
+        // Vérification hybride (Texte clair OU Hachage)
         if ($password === $db_password || password_verify($password, $db_password)) {
+            // On donne le badge de session à l'utilisateur
             $_SESSION['user_id'] = $user['id'];
             $_SESSION['user_nom'] = $user['nom'];
-            die("SUCCÈS : La connexion fonctionne enfin !");
-        } else {
-            die("ÉCHEC : Le mot de passe ne correspond pas. Tu as tapé '" . $password . "' et la base contient '" . $db_password . "'");
+            
+            // REDIRECTION VERS LE DASHBOARD
+            header('Location: ../dashboard/index.php');
+            exit();
         }
-    } else {
-        die("ÉCHEC : Email inconnu dans la base.");
     }
+    
+    // Si échec, retour au login avec erreur
+    header('Location: login.php?error=1');
+    exit();
 }
