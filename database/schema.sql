@@ -1,4 +1,4 @@
-gitgitCREATE TABLE utilisateurs (
+CREATE TABLE utilisateurs (
 id INT AUTO_INCREMENT PRIMARY KEY,
 nom VARCHAR(100),
 prenom VARCHAR(100),
