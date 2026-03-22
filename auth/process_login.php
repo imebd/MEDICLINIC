@@ -13,7 +13,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if ($user) {
         $db_password = trim($user['mot_de_passe']);
 
-        // Vérification hybride (Texte clair OU Hachage)
+        
         if ($password === $db_password || password_verify($password, $db_password)) {
             // On donne le badge de session à l'utilisateur
             $_SESSION['user_id'] = $user['id'];
