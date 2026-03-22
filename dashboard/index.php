@@ -27,7 +27,7 @@ $countFactures = $pdo->query("SELECT COUNT(*) FROM factures")->fetchColumn() ?: 
         <div class="logo">MEDICLINIC</div>
         <div class="nav-right">
             <span class="date-text">📅 <?php echo date('d M Y'); ?></span>
-            <span>Connecté : Dr. <?php echo htmlspecialchars($nom_docteur); ?></span>
+            <span>Connecté : <?php echo htmlspecialchars($nom_docteur); ?></span>
             <a href="../auth/logout.php" class="logout-link">Deconnexion</a>
         </div>
     </header>
@@ -37,10 +37,10 @@ $countFactures = $pdo->query("SELECT COUNT(*) FROM factures")->fetchColumn() ?: 
             <h2>MENU</h2>
             <ul>
                 <li><a href="index.php" class="active">Tableau de bord</a></li>
-                <li><a href="patients.php">Patients</a></li>
-                <li><a href="rendezvous.php">Rendez-vous</a></li>
-                <li><a href="consultations.php">Consultations</a></li>
-                <li><a href="factures.php">Factures</a></li>
+                <li><a href="../patients/index.php">Patients</a></li>
+                <li><a href="../appointments/index.php">Rendez-vous</a></li>
+                <li><a href="../consultations/index.php">Consultations</a></li>
+                <li><a href="../factures/index.php">Factures</a></li>
             </ul>
         </nav>
 
