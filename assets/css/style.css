@@ -1,0 +1,204 @@
+:root {
+    --primary: #10b981;    /* Vert Frais */
+    --secondary: #3b82f6;  /* Bleu Clair */
+    --danger: #ef4444;     /* Rouge Alerte */
+    --bg-light: #f8fafc;
+    --sidebar-text: #475569;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+    background: var(--bg-light);
+    font-family: 'Segoe UI', system-ui, sans-serif;
+    color: #1e293b;
+}
+
+/* --- Topbar Lumineuse --- */
+.topbar {
+    background: #ffffff;
+    padding: 15px 40px;
+    display: flex; justify-content: space-between; align-items: center;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    border-bottom: 3px solid var(--primary);
+}
+
+.topbar h1 { color: var(--primary); font-weight: 800; font-size: 24px; }
+
+/* --- Tableaux & Boutons Actions --- */
+.table-container { background: white; border-radius: 20px; padding: 25px; box-shadow: 0 4px 15px rgba(0,0,0,0.03); }
+table { width: 100%; border-collapse: collapse; margin-top: 15px; }
+table th { background: #f8fafc; color: #64748b; padding: 15px; text-align: left; font-size: 12px; text-transform: uppercase; }
+table td { padding: 15px; border-bottom: 1px solid #f1f5f9; font-size: 14px; }
+
+.btn-primary {
+    width: 100%;
+    background: var(--primary);
+    color: white;
+    border: none;
+    padding: 14px;
+    border-radius: 12px;
+    font-size: 16px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.btn-primary:hover { background: #0ea271; transform: translateY(-2px); }
+
+/* --- Styles spécifiques au Login --- */
+.login-page {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+}
+
+.login-box {
+    background: #ffffff;
+    padding: 40px;
+    border-radius: 24px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+    width: 100%;
+    max-width: 400px;
+    border: 1px solid #f1f5f9;
+}
+
+.login-logo { text-align: center; margin-bottom: 30px; }
+.login-logo h1 { color: var(--primary); font-size: 28px; font-weight: 800; }
+.login-logo p { color: #64748b; font-size: 14px; margin-top: 5px; }
+
+.form-group { margin-bottom: 20px; }
+.form-group label { display: block; margin-bottom: 8px; font-size: 14px; font-weight: 600; color: var(--sidebar-text); }
+
+.form-control {
+    width: 100%;
+    padding: 12px 15px;
+    border-radius: 12px;
+    border: 2px solid #e2e8f0;
+    font-family: inherit;
+    font-size: 15px;
+    transition: 0.2s;
+}
+
+.form-control:focus { outline: none; border-color: var(--primary); }
+
+/* NOUVEAU : Bouton d'inscription (Vert Frais) */
+.btn-outline-primary {
+    display: block;
+    width: 100%;
+    padding: 12px;
+    border: 2px solid var(--primary);
+    color: var(--primary);
+    text-decoration: none;
+    border-radius: 12px;
+    font-weight: 700;
+    font-size: 14px;
+    text-align: center;
+    transition: 0.2s;
+    text-transform: uppercase;
+    margin-top: 15px;
+}
+
+.btn-outline-primary:hover {
+    background: var(--primary);
+    color: white;
+}
+
+.register-section {
+    margin-top: 25px;
+    padding-top: 20px;
+    border-top: 1px solid #f1f5f9;
+    text-align: center;
+}
+/* --- Mise en page globale (Main Layout) --- */
+.container {
+    display: flex;
+    min-height: 100vh;
+}
+
+.main-content {
+    flex: 1;
+    padding: 20px;
+}
+
+/* --- Sidebar (Barre Latérale) --- */
+.sidebar {
+    width: 260px;
+    background: #ffffff;
+    border-right: 1px solid #e2e8f0;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+.nav-list {
+    list-style: none; /* Enlève les points noirs */
+    padding: 0;
+    margin-top: 20px;
+}
+
+.nav-list li {
+    margin-bottom: 8px;
+}
+
+.nav-list a {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px 15px;
+    text-decoration: none;
+    color: var(--sidebar-text);
+    font-weight: 600;
+    border-radius: 12px;
+    transition: 0.3s;
+}
+
+/* Effet au survol et lien actif */
+.nav-list a:hover, .nav-list li.active a {
+    background: #ecfdf5; /* Vert très clair */
+    color: var(--primary);
+}
+
+.nav-list i {
+    font-size: 18px;
+    width: 25px;
+    text-align: center;
+}
+/* --- Correction Layout Global --- */
+.main-wrapper {
+    display: flex; /* Met la sidebar et le contenu sur la même ligne */
+    min-height: 100vh;
+    background: var(--bg-light);
+}
+
+.sidebar {
+    width: 260px;
+    background: white;
+    border-right: 1px solid #e2e8f0;
+    padding: 10px;
+    flex-shrink: 0;
+}
+
+.main-content {
+    flex-grow: 1;
+    padding: 30px;
+}
+
+/* --- Style des Notifications Patient --- */
+.notif-card {
+    background: white;
+    padding: 20px;
+    border-radius: 15px;
+    margin-bottom: 15px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.02);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-left: 5px solid #cbd5e1;
+}
+
+.status-confirmed { border-left-color: var(--primary); }
+.status-pending { border-left-color: #f59e0b; }
+.status-cancelled { border-left-color: var(--danger); }
